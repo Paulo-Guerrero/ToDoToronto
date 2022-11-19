@@ -5,18 +5,16 @@ class DBUtil:
     endpoint = 'todotoronto.cvi29upq4yqe.us-east-1.rds.amazonaws.com'
     username = 'admin'
     password = '123itisMe!'
-    dbName = 'toDoToronto'
+    dbName = 'prod'
 
-    # connection = pymysql.connect(host=endpoint, user=username,
-    #                              password=password, database=dbName)
-
-    def __init__(self):
-        print("hello")
+    connection = pymysql.connect(host=endpoint, user=username,
+                                 password=password, database=dbName)
 
     def executeQuery(self, query):
+        print("hello")
         cursor = self.connection.cursor()
         cursor.execute(query)
 
         results = cursor.fetchall()
-
+        print(results)
         return results

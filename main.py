@@ -1,10 +1,19 @@
 from flask import Flask, render_template, request
+
+import ActivityGenerator
 import Content
 import DBUtil
 
 app = Flask(__name__)
 criteriaModel = Content.Content()
 dbUtil = DBUtil.DBUtil()
+ag = ActivityGenerator.ActivityGenerator(dbUtil)
+
+longName = 4
+link = 5
+description = 6
+date = 7
+
 
 @app.route("/")
 def index():
@@ -17,29 +26,40 @@ def submit_criteria():
         question = request.form.get("question")
         criteria = request.form.get("criteria")
         criteriaModel.add_criteria(question, criteria)
-    return ('',204)
+    return ('', 204)
 
 
 @app.route("/activity", methods=["POST", "GET"])
 def activity():
+    event = None
+    activityName = "Oops! All out of recommendations!"
+    website = None
+    descrip = None
+    eventDate = None
+
     if request.method == "POST":
-        activity = generate_activity(criteriaModel.criteria1,
-                                     criteriaModel.criteria2,
-                                     criteriaModel.criteria3)
+        ag.generate_activity(criteriaModel)
+        activities = ag.activities
+        print(activities)
+        event = activities[0]
     else:
-        activity = generate_activity(None, None, None)
-
-    activityName = activity.get("activityName")
-    website = activity.get("website")
-
-    return render_template('activity.html', activityName=activityName,
-                           website=website)
-
-
-def generate_activity(criteria1, criteria2, criteria3):
-    # TODO implement
-    activityInfo = {"activityName": criteria1, "website": criteria2}
-    return activityInfo
+        activities = ag.activities
+        if activities:
+            activities.pop(0)
+        if activities:
+            event = activities[0]
+    if event:
+        activityName = event[longName]
+        website = event[link]
+        descrip = event[description]
+        eventDate = event[date]
+    if event:
+        render_template('activity.html', activityName=activityName)
+    return render_template('activity.html',
+                           activityName=activityName,
+                           website=website,
+                           description=descrip,
+                           date=eventDate)
 
 
 # Press the green button in the gutter to run the script.
