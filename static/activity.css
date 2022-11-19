@@ -5,27 +5,27 @@ body{
 }
 
 .header{
-    font-family: Verdana;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     font-weight: bold;
     color: white;
 }
 
 .activity{
-    font-family: Verdana;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     font-weight: bold;
     color: white;
-
 }
 
 .submit{
-    background-color: #0047AB;
+    background: rgba(153, 204, 255, 0.5);
     color: white;
     border: none;
     padding: 15px 32px;
     transition-duration: 0.4s;
     margin-right: 10px;
-    font-family: Verdana;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     font-weight: bold;
+    border-radius: 8px;
 }
 
 .submit:hover{
@@ -34,7 +34,7 @@ body{
 }
 
 footer {
-  font-family: Verdana;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
   position: absolute;
   bottom: 100px;
   width: 100%;
