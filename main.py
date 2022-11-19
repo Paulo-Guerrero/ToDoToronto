@@ -33,9 +33,10 @@ def submit_criteria():
 def activity():
     event = None
     activityName = "Oops! All out of recommendations!"
-    website = None
-    descrip = None
-    eventDate = None
+    website = ""
+    descrip = ""
+    eventDate = ""
+    eventLink = ""
 
     if request.method == "POST":
         ag.generate_activity(criteriaModel)
@@ -47,18 +48,20 @@ def activity():
             activities.pop(0)
         if activities:
             event = activities[0]
+        else:
+            event = None
     if event:
         activityName = event[longName]
         website = event[link]
         descrip = event[description]
         eventDate = event[date]
-    if event:
-        render_template('activity.html', activityName=activityName)
+        eventLink = "Event Link"
     return render_template('activity.html',
                            activityName=activityName,
                            website=website,
                            description=descrip,
-                           date=eventDate)
+                           date=eventDate,
+                           link=eventLink)
 
 
 # Press the green button in the gutter to run the script.
