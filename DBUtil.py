@@ -11,10 +11,8 @@ class DBUtil:
                                  password=password, database=dbName)
 
     def executeQuery(self, query):
-        print("hello")
         cursor = self.connection.cursor()
         cursor.execute(query)
 
         results = cursor.fetchall()
-        print(results)
         return results

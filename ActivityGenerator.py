@@ -28,8 +28,7 @@ class ActivityGenerator:
                 randomNums.add(random.randint(0, len(results) - 1))
             for num in randomNums:
                 self.activities.append(results[num])
-            print(randomNums)
-            print(self.activities)
+
         else:
             weightDict = collections.defaultdict(list)
             weights = set()

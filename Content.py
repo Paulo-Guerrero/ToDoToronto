@@ -21,6 +21,6 @@ class Content:
             self.criteria4 = self.question4[criteria]
 
     def isEmpty(self):
-        if self.criteria1 and self.criteria2 and self.criteria3 and self.criteria4:
-            return True
-        return False
+        if self.criteria1 or self.criteria2 or self.criteria3 or self.criteria4:
+            return False
+        return True

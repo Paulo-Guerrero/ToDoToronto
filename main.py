@@ -40,7 +40,6 @@ def activity():
     if request.method == "POST":
         ag.generate_activity(criteriaModel)
         activities = ag.activities
-        print(activities)
         event = activities[0]
     else:
         activities = ag.activities
