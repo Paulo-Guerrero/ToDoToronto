@@ -1,5 +1,5 @@
 class Content:
-    question1 = {"Concert": 1, "Restaurant": 2, "Community event": 3, "Activity": 4, "Suprise me!": 5}
+    question1 = {"Concert": 1, "Restaurant": 2, "Community event": 3, "Activity": 4, "Surprise me!": 5}
     question2 = {"Chill": 1, "Hype": 2, "Social": 3, "Just looking to have a good time": 4}
     question3 = {"Solo": 1, "Two": 2, "Three": 3, "Four or more": 4}
     question4 = {"FREE": 1, "Just a bit": 2, "A moderate amount": 3, "I'm trying to splurge": 4, "Money is no object!": 5}
