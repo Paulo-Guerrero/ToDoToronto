@@ -13,7 +13,6 @@ function submitCriteria(button){
 function next_question(questionId, buttonId){
     var nextNumber = (parseInt(questionId.slice(questionId.length - 1))) + 1;
     nextQuestId = "question" + nextNumber;
-    document.getElementById(buttonId).style.color = 'red';
     document.getElementById(nextQuestId).style.display = 'inline';
     document.getElementById(questionId).style.display = 'none';
 }
