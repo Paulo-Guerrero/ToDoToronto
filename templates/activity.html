@@ -14,10 +14,16 @@
     </header>
     <div class="activity">
         <p>{{activityName}}</p>
-        <p>{{website}}</p>
+        <a href={{website}} target =_blank>Link</a>
+        <p>{{description}}</p>
+        <p>{{date}}</p>
         <p>Don't like it? Generate a new activity</p>
         <form action="/activity" method="get">
-            <input type="submit" value="Go!" class="submit">
+            <input type="submit" value="Another activity" class="submit">
+        </form>
+
+        <form action="/" method="get">
+            <input type="submit" value="Restart" class="submit">
         </form>
     </div>
 <footer>
