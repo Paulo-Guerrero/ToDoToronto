@@ -1,0 +1,84 @@
+body{
+    color:white;
+    text-align: center;
+    background-image:url("toDoTorontoBackground.png");
+}
+
+.welcome{
+    font-family: Verdana;
+    font-weight: bold;
+    color: white;
+}
+
+.description{
+    font-family: Verdana;
+    font-weight: bold;
+    color: white;
+
+}
+.answer{
+    background-color: #0047AB;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    transition-duration: 0.4s;
+    margin-right: 10px;
+    font-family: Verdana;
+    font-weight: bold;
+
+}
+
+.answer:hover{
+    background-color: white;
+    color: black;
+}
+
+.question{
+
+}
+.questionHeader{
+    font-family: Verdana;
+}
+
+.question1{
+    display: inline;
+}
+
+.question{
+    display: none;
+}
+
+.question3{
+    display:none;
+}
+
+.question4{
+    display:none;
+}
+
+.submit{
+    background-color: #0047AB;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    transition-duration: 0.4s;
+    margin-right: 10px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+.submit:hover{
+    background-color: white;
+    color: black;
+}
+
+.generate{
+    padding: 50px;
+}
+footer {
+  font-family: Verdana;
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  height: 50px;
+}

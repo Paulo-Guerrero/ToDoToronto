@@ -1,0 +1,42 @@
+body{
+    color:white;
+    text-align: center;
+    background-image:url("toDoTorontoBackground.png");
+}
+
+.header{
+    font-family: Verdana;
+    font-weight: bold;
+    color: white;
+}
+
+.activity{
+    font-family: Verdana;
+    font-weight: bold;
+    color: white;
+
+}
+
+.submit{
+    background-color: #0047AB;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    transition-duration: 0.4s;
+    margin-right: 10px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+.submit:hover{
+    background-color: white;
+    color: black;
+}
+
+footer {
+  font-family: Verdana;
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  height: 50px;
+}

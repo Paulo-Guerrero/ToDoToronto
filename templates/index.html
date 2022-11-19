@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do Toronto</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css')}}"/>
+    <script src="{{ url_for('static', filename='index.js')}}"></script>
+</head>
+<body>
+    <header>
+        <div class="welcome">
+            <h1>Welcome to To Do Toronto!</h1>
+        </div>
+    </header>
+    <div class="description">
+        <h2>Answer a few questions and we will generate an activity for you to do in Toronto</h2>
+        <h2>Feeling adventurous? Click here for a random activity!</h2>
+        <form action="/activity" method="get">
+            <input type="submit" value="Go!" class="submit">
+        </form>
+    </div>
+
+    <div class="question1" id="question1">
+        <p class="questionHeader">What kind of activity are you looking for?</p>
+        <button onclick="submitCriteria(this)" class="answer" id="Concert" value="question1">Concert</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Restaurant" value="question1">Restaurant</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Community event" value="question1">Community event</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Activity" value="question1">Activity</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Surprise me!" value="question1">Surprise me!</button>
+        <br>
+    </div>
+
+    <div class="question" id="question2">
+        <p class="questionHeader">What kind of vibe are you looking for?</p>
+        <button onclick="submitCriteria(this)" class="answer" id="Chill" value="question2">Chill</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Hype" value="question2">Hype</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Social" value="question2">Social</button>
+        <button onclick="submitCriteria(this)" class="answer" id="GoodTime" value="question2">Just looking to have a good time</button>
+        <br>
+    </div>
+
+    <div class="question" id="question3">
+        <p class="questionHeader">How many people are you going with?</p>
+        <button onclick="submitCriteria(this)" class="answer" id="Solo" value="question3">Solo</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Two" value="question3">Two</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Three" value="question3">Three</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Four or more" value="question3">Four or more</button>
+        <br>
+    </div>
+
+    <div class="question" id="question4">
+        <p class="questionHeader">How much do you want to spend?</p>
+        <button onclick="submitCriteria(this)" class="answer" id="FREE" value="question4">FREE</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Just a bit" value="question4">Just a bit</button>
+        <button onclick="submitCriteria(this)" class="answer" id="A moderate amount" value="question4">A moderate amount</button>
+        <button onclick="submitCriteria(this)" class="answer" id="I'm trying to splurge" value="question4">I'm trying to splurge</button>
+        <button onclick="submitCriteria(this)" class="answer" id="Money is no object!" value="question4">Money is no object!</button>
+        <br>
+    </div>
+
+    <div class = "generate">
+        <form action="/activity" method="post">
+                <input type="submit" value="Generate custom activity!" class="submit">
+        </form>
+    </div>
+<footer>
+    <p>Creator: Paulo Guerrero</p>
+    <a href="https://linkedin.com/in/P-Guerrero" target="_blank" class="linkedIn">LinkedIn</a>
+    <a href="https://github.com/Paulo-Guerrero" target="_blank" class="github">GitHub</a>
+</footer>
+</body>
+</html>
