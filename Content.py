@@ -3,9 +3,7 @@ class Content:
         self.criteria1 = None
         self.criteria2 = None
         self.criteria3 = None
-        self.criteriaMapping = {"question1": self.criteria1,
-                                "question2": self.criteria2,
-                                "question3": self.criteria3}
+        self.criteria4 = None
 
     def add_criteria(self, question, criteria):
         if question == "question1":
@@ -14,3 +12,5 @@ class Content:
             self.criteria2 = criteria
         elif question == "question3":
             self.criteria3 = criteria
+        elif question == "question4":
+            self.criteria4 = criteria

@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-
-from app.Content import Content
+import Content
+import DBUtil
 
 app = Flask(__name__)
-criteriaModel = Content()
-
+criteriaModel = Content.Content()
+dbUtil = DBUtil.DBUtil()
 
 @app.route("/")
 def index():
