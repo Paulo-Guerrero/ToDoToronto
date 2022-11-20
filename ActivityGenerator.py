@@ -10,7 +10,6 @@ class ActivityGenerator:
 
     def __init__(self, dbUtil):
         self.dbUtil = dbUtil
-        self.activities = []
 
     def generate_activity(self, criteriaModel):
         results = self.dbUtil.executeQuery(
@@ -20,14 +19,14 @@ class ActivityGenerator:
 
         events = []
 
-        criteria = [criteriaModel.criteria1, criteriaModel.criteria2,
-                    criteriaModel.criteria3, criteriaModel.criteria4]
+        criteria = criteriaModel.answers
+
         if criteriaModel.isEmpty():
             randomNums = set()
             while len(randomNums) < min(len(results) - 1, 10):
                 randomNums.add(random.randint(0, len(results) - 1))
             for num in randomNums:
-                self.activities.append(results[num])
+                events.append(results[num])
 
         else:
             weightDict = collections.defaultdict(list)
@@ -47,4 +46,4 @@ class ActivityGenerator:
                 events += weightDict[weights[i]]
                 i += 1
 
-            self.activities = events
+        return events

@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 
 import ActivityGenerator
 import Content
 import DBUtil
+import uuid
+
 
 app = Flask(__name__)
-criteriaModel = Content.Content()
+app.secret_key = "secretKey"
 dbUtil = DBUtil.DBUtil()
 ag = ActivityGenerator.ActivityGenerator(dbUtil)
 
@@ -17,6 +19,7 @@ date = 7
 
 @app.route("/")
 def index():
+    session["sessionId"] = uuid.uuid4()
     return render_template('index.html')
 
 
@@ -25,7 +28,13 @@ def submit_criteria():
     if request.method == "POST":
         question = request.form.get("question")
         criteria = request.form.get("criteria")
+        criteriaModel = Content.Content()
+        if "criteriaModel" in session:
+            criteriaModel = Content.Content(session["criteriaModel"])
         criteriaModel.add_criteria(question, criteria)
+
+        session["criteriaModel"] = criteriaModel.answers
+
     return ('', 204)
 
 
@@ -39,17 +48,20 @@ def activity():
     eventLink = ""
 
     if request.method == "POST":
-        ag.generate_activity(criteriaModel)
-        activities = ag.activities
-        event = activities[0]
+        criteriaModel = Content.Content()
+        if "criteriaModel" in session:
+            criteriaModel = Content.Content(session["criteriaModel"])
+        if "sessionId" in session:
+            session["activities"] = ag.generate_activity(criteriaModel)
+            event = session["activities"][0]
     else:
-        activities = ag.activities
-        if activities:
-            activities.pop(0)
-        if activities:
-            event = activities[0]
-        else:
-            event = None
+        if "sessionId" in session:
+            activities = session["activities"]
+            if activities:
+                activities.pop(0)
+                session["activities"] = activities
+            if activities:
+                event = activities[0]
     if event:
         activityName = event[longName]
         website = event[link]
