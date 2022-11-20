@@ -35,7 +35,7 @@ def submit_criteria():
 
         session["criteriaModel"] = criteriaModel.answers
 
-    return ('', 204)
+    return '', 204
 
 
 @app.route("/activity", methods=["POST", "GET"])
